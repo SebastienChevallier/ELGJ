@@ -34,7 +34,7 @@ public class TaskManager : TwitchMonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Listening Chat : " + canSelect);
+        //Debug.Log("Listening Chat : " + canSelect);
     }
 
     public void OnTwitchMessageReceived(TwitchUser user, string message)
@@ -43,7 +43,7 @@ public class TaskManager : TwitchMonoBehaviour
         if (!userKeyPair.ContainsKey(user.userId))
         {
             userKeyPair.Add(user.userId, message);
-            Debug.Log($"From : {user.userId} : {message}");
+            //Debug.Log($"From : {user.userId} : {message}");
         }        
     }
 
@@ -52,10 +52,20 @@ public class TaskManager : TwitchMonoBehaviour
         foreach (KeyValuePair<int, string> entry in userKeyPair)
         {
             CheckAction(actions, entry.Value);
-            Debug.Log("Check action : " + entry.Value);
+            //Debug.Log("Check action : " + entry.Value);
         }
 
         //GetBestAction();
+    }
+
+    public int GetActionVote(SO_Action action)
+    {       
+        if (actionChance.ContainsKey(action))
+        {
+            Debug.Log(actionChance[action]);
+            return actionChance[action];
+        }
+        return 0;
     }
 
     public void CheckAction(List<SO_Action> actions, string value) 
@@ -85,7 +95,7 @@ public class TaskManager : TwitchMonoBehaviour
 
         int key = actionChance.Values.Max();
         SO_Action finalAction = actionChance.FirstOrDefault(x => x.Value == key).Key;
-        Debug.Log("Best action : " + finalAction);
+        //Debug.Log("Best action : " + finalAction);
         return finalAction;
     }
 
