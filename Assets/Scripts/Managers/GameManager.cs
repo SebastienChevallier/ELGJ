@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     public List<Hero> heroes = new List<Hero>();
     public int TurnNumber = 0;
 
-    public TextMeshProUGUI textMeshProUGUI;
+    public Slider timerSlider;
     public GameObject UIActionParent;
     public GameObject UIActionPrefab;
 
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Debug.Log(order);
+        //Debug.Log(order);
     }
 
     public void StartStep()
@@ -106,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     public void EndStep()
     {
-        Debug.Log("Begin End Step");
+        //Debug.Log("Begin End Step");
         foreach(UIActionDisplay display in uIActionDisplays)
         {
             Destroy(display.gameObject);
@@ -124,26 +125,34 @@ public class GameManager : MonoBehaviour
     {
         TaskManager.Instance.ClearChat();
 
-        float time = 0;
-        textMeshProUGUI.text = time.ToString();
+        float time = 0f;
+        timerSlider.value = time;
+        int i = 0;
 
-        while (time < 20)
+        while (time < 20f)
         {
             time += Time.deltaTime;
-
             //Debug.Log(time);
 
             TaskManager.Instance.canSelect = true;
-            textMeshProUGUI.text = ((int)time).ToString();
+            timerSlider.value = time;
+
+            if (time > i)
+            {
+                //TaskManager.Instance.SelectAction(action.GetActions());
+                //TaskManager.Instance.userKeyPair.Clear();
+                i++;                
+                UpdateUIButtons();
+            }
 
             yield return new WaitForEndOfFrame();
         }
-        
+
         TaskManager.Instance.canSelect = false;
 
         TaskManager.Instance.SelectAction(action.GetActions());
 
-        SO_Action act = TaskManager.Instance.GetBestAction();
+        SO_Action act = TaskManager.Instance.GetBestAction();        
 
         if (act != null) 
         {
@@ -151,6 +160,14 @@ public class GameManager : MonoBehaviour
         }
 
         EndStep();
+    }
+
+    private void UpdateUIButtons()
+    {
+        foreach(UIActionDisplay uIActionDisplay in uIActionDisplays)
+        {
+            uIActionDisplay.UpdateCompteurVote();
+        }
     }
 
     private List<UIActionDisplay> uIActionDisplays = new List<UIActionDisplay>();
