@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using System;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public Mob mob;
     public List<Hero> heroes = new List<Hero>();
+    public int TurnNumber = 0;
 
     public TextMeshProUGUI textMeshProUGUI;
     public GameObject UIActionParent;
@@ -56,15 +58,23 @@ public class GameManager : MonoBehaviour
 
     public void BuildQueue()
     {
+        TurnNumber++;
         turnOrder.Clear();
+        string order = "";
+        int i = 0;
 
-        foreach (var entity in entities)
+        foreach (Entity entity in entities.OrderByDescending(e => e.stats.speed))
         {
             if (!turnOrder.Contains(entity))
             {
+                i++;
+
                 turnOrder.Enqueue(entity);
+                order += $"N°{i} : {entity.name} with {entity.stats.speed} speed\n";
             }
         }
+
+        Debug.Log(order);
     }
 
     public void StartStep()
@@ -101,8 +111,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(display.gameObject);
         }
-        uIActionDisplays.Clear();
-        Debug.ClearDeveloperConsole();
+        uIActionDisplays.Clear();        
         StartStep();
     }
 
@@ -113,6 +122,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartVote(IActions action)
     {
+        TaskManager.Instance.ClearChat();
+
         float time = 0;
         textMeshProUGUI.text = time.ToString();
 
@@ -132,10 +143,14 @@ public class GameManager : MonoBehaviour
 
         TaskManager.Instance.SelectAction(action.GetActions());
 
-        action.DoAction(TaskManager.Instance.GetBestAction());
+        SO_Action act = TaskManager.Instance.GetBestAction();
+
+        if (act != null) 
+        {
+            action.DoAction(act);            
+        }
 
         EndStep();
-        //turnOrder.Clear();
     }
 
     private List<UIActionDisplay> uIActionDisplays = new List<UIActionDisplay>();
