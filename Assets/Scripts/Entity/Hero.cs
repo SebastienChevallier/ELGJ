@@ -18,6 +18,7 @@ public class Hero : Entity, IActions
         object[] arg = new object[2];
         arg[0] = GameManager.Instance.mob;
         arg[1] = stats.power;
+        arg[2] = this;
         action.DoAction(arg);
     }
 
