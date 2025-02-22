@@ -6,7 +6,17 @@ public class SO_heal : SO_Action
 {
     public override void DoAction(object[] arg)
     {
-        Debug.Log("Commande heal");
+        if (arg.Length > 0)
+        {
+            Entity entity = (Entity)arg[2];
+            if (entity != null)
+            {
+                if (entity.TryGetComponent<IHealth>(out IHealth health))
+                {
+                    health.UpdateHealth((int)arg[1]);
+                }
+            }
+        }
     }
 }
 

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Fantasy Wooden GUI  Free.meta
 guid: e0008f603b7e4c946a765b6b9492c9f2
+========
+guid: 6e424b50f6e948342a408e59f07541b7
+>>>>>>>> origin/grorian:Assets/Plugins.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
