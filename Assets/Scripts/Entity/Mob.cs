@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Mob : Entity
 {
-    public Hero heroPriority;
+    public int basicAttackDamage;
+    public int AttackeAOEDamage;
 
-    private Hero target;
+    public Hero heroPriority;
+    public Animator animator;
+
     public void Attaque()
     {
         MobAction action = GetRandomEnumValue<MobAction>();
@@ -15,22 +18,37 @@ public class Mob : Entity
         {
             case MobAction.Attack:
 
+                animator.Play("AttackBasic");
                 break;
             case MobAction.AttackAOE:
-
+                animator.Play("AttackAOE");
                 break;
         }
-
-        Debug.Log("Orge Attaque ! ");
-        StartCoroutine(DoEffect());
     }
 
-    IEnumerator DoEffect()
+    IEnumerator BasicAttack() 
     {
-        //FX, Anim, Etc...
+        Hero target;
+        if (heroPriority)
+        {
+            target = heroPriority;
+        } else
+        {
+            target = GameManager.Instance.heroes[UnityEngine.Random.Range(0, GameManager.Instance.heroes.Count)];
+        }
+        target.UpdateHealth(-basicAttackDamage);
         yield return new WaitForSeconds(1);
         GameManager.Instance.EndStep();
-        yield return null;
+    }
+
+    IEnumerator AttackAOE()
+    {
+        foreach(Hero hero in GameManager.Instance.heroes)
+        {
+            hero.UpdateHealth(-AttackeAOEDamage);
+        }
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.EndStep();
     }
     public T GetRandomEnumValue<T>()
     {
