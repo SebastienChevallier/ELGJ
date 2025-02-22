@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/TwitchIntegrationDemo/Scenes/Authentication.unity
+    path: Assets/Scenes/Authentication.unity
     guid: 8f34a80860e32bc43b54f00b117579c5
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
