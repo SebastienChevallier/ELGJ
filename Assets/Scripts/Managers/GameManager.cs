@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public List<Entity> entities = new List<Entity>();
     public Queue<Entity> turnOrder = new Queue<Entity>();
     public Entity actualPlayable;
+
+    public Mob mob;
+    public List<Hero> heroes = new List<Hero>();
 
     public TextMeshProUGUI textMeshProUGUI;
     public GameObject UIActionParent;
@@ -33,6 +37,20 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        foreach (Entity ent in entities)
+        {
+            if(ent.TryGetComponent<Mob>(out Mob _mob))
+            {
+                mob = _mob;
+            }
+
+            if (ent.TryGetComponent<Hero>(out Hero hero))
+            {
+                heroes.Add(hero);
+            }
+        }
+
+
         StartStep();
     }
 
