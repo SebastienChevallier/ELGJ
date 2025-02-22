@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         if(turnOrder.Count > 0)
         {
-            Debug.Log(turnOrder.Count);
+            //Debug.Log(turnOrder.Count);
             actualPlayable = turnOrder.Dequeue();
 
             if(actualPlayable.TryGetComponent<IActions>(out IActions action))
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 
         float time = 0f;
         timerSlider.value = time;
-        int i = 0;
+        //int i = 0;
 
         while (time < 20f)
         {
@@ -137,13 +137,13 @@ public class GameManager : MonoBehaviour
             TaskManager.Instance.canSelect = true;
             timerSlider.value = time;
 
-            if (time > i)
+            /*if (time > i)
             {
                 //TaskManager.Instance.SelectAction(action.GetActions());
                 //TaskManager.Instance.userKeyPair.Clear();
                 i++;                
                 UpdateUIButtons();
-            }
+            }*/
 
             yield return new WaitForEndOfFrame();
         }

@@ -59,23 +59,7 @@ public class TaskManager : TwitchMonoBehaviour
         }
     }
 
-    /*public void UpdateChanceAction(List<SO_Action> actions, string value)
-    {
-        foreach (SO_Action action in actions)
-        {
-            if (action.actionName == value)
-            {
-                if (actionChance.ContainsKey(action))
-                {
-                    actionChance[action]++;
-                }
-                else
-                {
-                    actionChance.Add(action, 1);
-                }
-            }
-        }
-    }*/
+    
 
     public int GetActionVote(SO_Action action)
     {      

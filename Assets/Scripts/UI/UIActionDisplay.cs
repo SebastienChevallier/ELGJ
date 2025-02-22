@@ -23,8 +23,8 @@ public class UIActionDisplay : MonoBehaviour
 
     public void UpdateCompteurVote()
     {
-        int vote = TaskManager.Instance.GetActionVote(_action);
-        if (vote != 0) { compteur.text = vote.ToString(); }
+       /* int vote = TaskManager.Instance.GetActionVote(_action);
+        if (vote != 0) { compteur.text = vote.ToString(); }*/
         
     }
 }
