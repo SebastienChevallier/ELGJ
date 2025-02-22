@@ -6,4 +6,5 @@ public class EntityStats : ScriptableObject
     public int health;
     public int maxHealth;
     public int power;
+    public int speed;
 }

@@ -37,12 +37,13 @@ public class TaskManager : TwitchMonoBehaviour
         Debug.Log("Listening Chat : " + canSelect);
     }
 
-    private void OnTwitchMessageReceived(TwitchUser user, string message)
+    public void OnTwitchMessageReceived(TwitchUser user, string message)
     {
         if (!canSelect) return;
         if (!userKeyPair.ContainsKey(user.userId))
         {
-            userKeyPair.Add(user.userId, message);            
+            userKeyPair.Add(user.userId, message);
+            Debug.Log($"From : {user.userId} : {message}");
         }        
     }
 
@@ -77,9 +78,21 @@ public class TaskManager : TwitchMonoBehaviour
 
     public SO_Action GetBestAction()
     {
+        if (actionChance.Count <= 0)
+        {
+            return null;
+        }
+
         int key = actionChance.Values.Max();
         SO_Action finalAction = actionChance.FirstOrDefault(x => x.Value == key).Key;
         Debug.Log("Best action : " + finalAction);
         return finalAction;
+    }
+
+    public void ClearChat()
+    {
+        userKeyPair.Clear();
+        actionChance.Clear();
+
     }
 }
