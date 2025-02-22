@@ -7,7 +7,7 @@ public class SO_taunt : SO_Action
     {
         if (arg.Length > 0)
         {
-            Hero entity = (Hero)arg[3];
+            Hero entity = (Hero)arg[2];
             Mob mob = (Mob)arg[0];
             if (entity != null)
             {

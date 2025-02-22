@@ -15,7 +15,7 @@ public class Hero : Entity, IActions
 
     public void DoAction(SO_Action action)
     {
-        object[] arg = new object[2];
+        object[] arg = new object[3];
         arg[0] = GameManager.Instance.mob;
         arg[1] = stats.power;
         arg[2] = this;
