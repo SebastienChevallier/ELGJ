@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public Entity actualPlayable;
 
     public TextMeshProUGUI textMeshProUGUI;
+    public GameObject UIActionParent;
+    public GameObject UIActionPrefab;
 
 
     private void Awake()
@@ -56,6 +58,9 @@ public class GameManager : MonoBehaviour
 
             if(actualPlayable.TryGetComponent<IActions>(out IActions action))
             {
+                //Afficher les options sur l'ecran
+                DisplayActions(action);
+
                 StartCoroutine(StartVote(action));
             }
         }
@@ -68,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void EndStep()
     {
-
+        StartStep();
     }
 
     public void EndFight()
@@ -81,14 +86,14 @@ public class GameManager : MonoBehaviour
         float time = 0;
         textMeshProUGUI.text = time.ToString();
 
-        while (time < 15)
+        while (time < 20)
         {
             time += Time.deltaTime;
 
             //Debug.Log(time);
 
             TaskManager.Instance.canSelect = true;
-            textMeshProUGUI.text = time.ToString();
+            textMeshProUGUI.text = ((int)time).ToString();
 
             yield return new WaitForEndOfFrame();
         }
@@ -99,10 +104,13 @@ public class GameManager : MonoBehaviour
 
         action.DoAction(TaskManager.Instance.GetBestAction());
 
-        turnOrder.Clear();
-
+        EndStep();
+        //turnOrder.Clear();
     }
 
     
-    
+    private void DisplayActions(IActions action)
+    {
+
+    }
 }
