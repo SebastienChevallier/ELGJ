@@ -7,6 +7,6 @@ public class UIActionDisplay : MonoBehaviour
 
     public void Init(SO_Action action)
     {
-        text.text = action.name;
+        text.text = action.actionName;
     }
 }

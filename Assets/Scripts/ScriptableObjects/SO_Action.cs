@@ -19,7 +19,7 @@ public class SO_attack : SO_Action
     }
 }
 
-[CreateAssetMenu(fileName = "SO_Attack", menuName = "Scriptable Objects/SO_Action/SO_Attack")]
+[CreateAssetMenu(fileName = "SO_heal", menuName = "Scriptable Objects/SO_Action/SO_heal")]
 public class SO_heal : SO_Action
 {
     public override void DoAction(object[] arg)
@@ -28,7 +28,7 @@ public class SO_heal : SO_Action
     }
 }
 
-[CreateAssetMenu(fileName = "SO_Attack", menuName = "Scriptable Objects/SO_Action/SO_Attack")]
+[CreateAssetMenu(fileName = "SO_taunt", menuName = "Scriptable Objects/SO_Action/SO_taunt")]
 public class SO_taunt : SO_Action
 {
     public override void DoAction(object[] arg)

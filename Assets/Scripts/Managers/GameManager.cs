@@ -63,6 +63,11 @@ public class GameManager : MonoBehaviour
 
                 StartCoroutine(StartVote(action));
             }
+
+            if (actualPlayable.TryGetComponent<Mob>(out Mob Mob))
+            {
+                Mob.Attaque();
+            }
         }
         else
         {
@@ -73,6 +78,13 @@ public class GameManager : MonoBehaviour
 
     public void EndStep()
     {
+        Debug.Log("Begin End Step");
+        foreach(UIActionDisplay display in uIActionDisplays)
+        {
+            Destroy(display.gameObject);
+        }
+        uIActionDisplays.Clear();
+        Debug.ClearDeveloperConsole();
         StartStep();
     }
 
@@ -108,9 +120,15 @@ public class GameManager : MonoBehaviour
         //turnOrder.Clear();
     }
 
-    
+    private List<UIActionDisplay> uIActionDisplays = new List<UIActionDisplay>();
     private void DisplayActions(IActions action)
     {
-
+        foreach(SO_Action act in action.GetActions())
+        {
+            GameObject GO =  Instantiate(UIActionPrefab, UIActionParent.transform);
+            UIActionDisplay display =  GO.GetComponent<UIActionDisplay>();
+            display.Init(act);
+            uIActionDisplays.Add(display);
+        }
     }
 }
