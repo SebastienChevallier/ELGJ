@@ -18,10 +18,10 @@ public class Mob : Entity
         {
             case MobAction.Attack:
 
-                animator.Play("AttackBasic");
+                animator.SetTrigger("Attack");
                 break;
             case MobAction.AttackAOE:
-                animator.Play("AttackAOE");
+                animator.SetTrigger("AttackAOE");
                 break;
         }
     }
