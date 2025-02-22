@@ -132,28 +132,27 @@ public class GameManager : MonoBehaviour
         while (time < 20f)
         {
             time += Time.deltaTime;
-
-            /*if(time > i)
-            {                
-                TaskManager.Instance.SelectAction(action.GetActions());
-                UpdateUIButtons();
-                i++;
-                Debug.Log(i);
-            }*/
-
             //Debug.Log(time);
 
             TaskManager.Instance.canSelect = true;
             timerSlider.value = time;
-            
+
+            if (time > i)
+            {
+                //TaskManager.Instance.SelectAction(action.GetActions());
+                //TaskManager.Instance.userKeyPair.Clear();
+                i++;                
+                UpdateUIButtons();
+            }
+
             yield return new WaitForEndOfFrame();
         }
-        
+
         TaskManager.Instance.canSelect = false;
 
         TaskManager.Instance.SelectAction(action.GetActions());
 
-        SO_Action act = TaskManager.Instance.GetBestAction();
+        SO_Action act = TaskManager.Instance.GetBestAction();        
 
         if (act != null) 
         {

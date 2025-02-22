@@ -11,6 +11,7 @@ public class UIActionDisplay : MonoBehaviour
     public void Init(SO_Action action)
     {
         text.text = action.actionName;
+        _action = action;
     }
 
     public void AddVote()

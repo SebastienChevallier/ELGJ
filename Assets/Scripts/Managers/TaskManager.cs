@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using TwitchIntegration;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class TaskManager : TwitchMonoBehaviour
 {
     public static TaskManager Instance { get; private set; }    
     public bool canSelect;
 
-    private Dictionary<int, string> userKeyPair = new Dictionary<int, string>();
+    public Dictionary<int, string> userKeyPair = new Dictionary<int, string>();
     private Dictionary<SO_Action, int> actionChance = new Dictionary<SO_Action, int>();
 
 
@@ -37,6 +38,7 @@ public class TaskManager : TwitchMonoBehaviour
         //Debug.Log("Listening Chat : " + canSelect);
     }
 
+    //Reception Message
     public void OnTwitchMessageReceived(TwitchUser user, string message)
     {
         if (!canSelect) return;
@@ -47,27 +49,47 @@ public class TaskManager : TwitchMonoBehaviour
         }        
     }
 
+    //Check les commandes chat avec les actions disponible en entrée
     public void SelectAction(List<SO_Action> actions)
     {
         foreach (KeyValuePair<int, string> entry in userKeyPair)
         {
             CheckAction(actions, entry.Value);
-            //Debug.Log("Check action : " + entry.Value);
+            Debug.Log("Check action : " + entry.Value);
         }
-
-        //GetBestAction();
     }
 
-    public int GetActionVote(SO_Action action)
-    {       
-        if (actionChance.ContainsKey(action))
+    /*public void UpdateChanceAction(List<SO_Action> actions, string value)
+    {
+        foreach (SO_Action action in actions)
         {
-            Debug.Log(actionChance[action]);
-            return actionChance[action];
+            if (action.actionName == value)
+            {
+                if (actionChance.ContainsKey(action))
+                {
+                    actionChance[action]++;
+                }
+                else
+                {
+                    actionChance.Add(action, 1);
+                }
+            }
+        }
+    }*/
+
+    public int GetActionVote(SO_Action action)
+    {      
+        if (actionChance.Count > 0)
+        {            
+            if (actionChance.ContainsKey(action))
+            {
+                return actionChance[action];
+            }            
         }
         return 0;
     }
 
+    //Incremente le nombre de vote de chaque actions disponible
     public void CheckAction(List<SO_Action> actions, string value) 
     {
         foreach(SO_Action action in actions)
