@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI actualPlayableText;
     public List<GameObject> allCanvas = new List<GameObject>();
     public UnityEvent onNextRound;
+    public GameObject losePanel, winPanel;
 
 
     private void Awake()
@@ -174,7 +176,7 @@ public class GameManager : MonoBehaviour
         timerSlider.value = time;
         //int i = 0;
 
-        while (time < 2.5f)
+        while (time < 2f)
         {
             time += Time.deltaTime;
             //Debug.Log(time);
@@ -229,11 +231,23 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-
+        turnOrder.Clear();
+        winPanel.SetActive(true);
     }
 
     public void Loose()
     {
+        turnOrder.Clear();
+        losePanel.SetActive(true);
+    }
 
+    public void OnClickRetry()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void OnClickRestart()
+    {
+        SceneManager.LoadScene(0);
     }
 }
