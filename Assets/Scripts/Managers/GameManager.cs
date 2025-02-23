@@ -7,6 +7,7 @@ using TMPro;
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public GameObject UIActionPrefab;
     public TextMeshProUGUI actualPlayableText;
     public List<GameObject> allCanvas = new List<GameObject>();
+    public UnityEvent onNextRound;
 
 
     private void Awake()
@@ -139,6 +141,7 @@ public class GameManager : MonoBehaviour
             {
                 Mob.Attaque();
             }
+            onNextRound.Invoke();
         }
         else
         {
