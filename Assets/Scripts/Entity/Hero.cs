@@ -36,5 +36,9 @@ public class Hero : Entity, IActions
     {
         base.Die();
         GameManager.Instance.heroes.Remove(this);
+        if (GameManager.Instance.heroes.Count == 0)
+        {
+            GameManager.Instance.Loose();
+        }
     }
 }
