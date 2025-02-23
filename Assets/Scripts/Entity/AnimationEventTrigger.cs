@@ -21,6 +21,11 @@ public class AnimationEventTrigger : MonoBehaviour
     {
         mob.Die();
     }
+
+    public void MobRage()
+    {
+        mob.animator.SetTrigger("Rage");
+    }
     #endregion
 
     public void HeroBasicAttack()
@@ -36,5 +41,10 @@ public class AnimationEventTrigger : MonoBehaviour
     public void HeroHeal()
     {
         
+    }
+
+    public void CameraShake()
+    {
+        CamShakeManager.Instance.DoShake(.75f, 1f, 0.1f);
     }
 }

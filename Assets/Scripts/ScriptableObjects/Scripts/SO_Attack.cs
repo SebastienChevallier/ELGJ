@@ -17,7 +17,7 @@ public class SO_attack : SO_Action
 
     IEnumerator WaitBeforeHit(object[] arg)
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds((float)arg[3]);
         Mob MobHealth = (Mob)arg[0];
         if (MobHealth != null)
         {
