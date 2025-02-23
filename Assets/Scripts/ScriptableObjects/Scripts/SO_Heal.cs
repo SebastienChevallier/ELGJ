@@ -4,19 +4,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_heal", menuName = "Scriptable Objects/SO_Action/SO_heal")]
 public class SO_heal : SO_Action
 {
+    public ParticleSystem healingParticles;
     public override void DoAction(object[] arg)
     {
-        if (arg.Length > 0)
+        Instantiate(healingParticles);
+        foreach (Hero hero in GameManager.Instance.heroes)
         {
-            Entity entity = (Entity)arg[2];
-            if (entity != null)
+            if (hero.TryGetComponent<IHealth>(out IHealth health))
             {
-                if (entity.TryGetComponent<IHealth>(out IHealth health))
-                {
-                    health.UpdateHealth((int)arg[1]);
-                }
+                health.UpdateHealth((int)arg[1]);
             }
         }
     }
 }
-

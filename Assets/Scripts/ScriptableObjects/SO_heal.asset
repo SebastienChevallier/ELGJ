@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SO_heal
   m_EditorClassIdentifier: 
   actionName: '!heal'
+  healingParticles: {fileID: 7695819742824289330, guid: de47971f00825d14e8432b90e922a91b, type: 3}

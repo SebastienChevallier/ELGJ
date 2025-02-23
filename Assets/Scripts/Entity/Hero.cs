@@ -5,6 +5,7 @@ public class Hero : Entity, IActions
 {
     public List<SO_Action> actions;
 
+
     public void Awake()
     {
         for(int i = 0; i < actions.Count; i++)
