@@ -26,7 +26,7 @@ public class Mob : Entity
 
     IEnumerator WaitToAttack()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(4f);
         MobAction action = GetRandomEnumValue<MobAction>();
 
         switch (action)
