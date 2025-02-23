@@ -1,6 +1,6 @@
 using UnityEngine;
 using TwitchIntegration;
-using Unity.VisualScripting;
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +9,6 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
 {

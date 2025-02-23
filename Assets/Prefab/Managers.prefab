@@ -989,7 +989,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6003123622319961356}
   - component: {fileID: 6488855244206103578}
-  - component: {fileID: 386690052803660911}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1039,18 +1038,12 @@ MonoBehaviour:
   UIActionPrefab: {fileID: 3047621500069304182, guid: 2e804805a32a3df44a952eb706ad57fc, type: 3}
   actualPlayableText: {fileID: 3956630989012406379}
   allCanvas: []
---- !u!114 &386690052803660911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7258294770186613607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54557f3c60e4ae41b95c12376262e04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  onNextRound:
+    m_PersistentCalls:
+      m_Calls: []
+  losePanel: {fileID: 0}
+  winPanel: {fileID: 0}
+  isEnd: 0
 --- !u!1 &7905172996163474806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,10 +1421,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6752232039644128303, guid: 6ee240eca21bfec42b6fc996a65ccda4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 386690052803660911}
     - target: {fileID: 6752232039644128303, guid: 6ee240eca21bfec42b6fc996a65ccda4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickRetry

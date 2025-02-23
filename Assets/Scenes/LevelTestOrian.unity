@@ -1926,8 +1926,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 386690052803660911, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9054166213653494417, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
@@ -7246,7 +7245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1384489440
 Transform:
   m_ObjectHideFlags: 0
