@@ -9,6 +9,9 @@ public class SO_taunt : SO_Action
         {
             Hero entity = (Hero)arg[2];
             Mob mob = (Mob)arg[0];
+
+            entity.animator.SetTrigger("Taunt");
+
             if (entity != null)
             {
                 mob.heroPriority = entity;
