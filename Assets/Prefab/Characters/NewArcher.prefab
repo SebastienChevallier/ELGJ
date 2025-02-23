@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2044765301122104033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ RectTransform:
   m_Father: {fileID: 9170965403276268873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.00000011920929}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -701,6 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3472950829283700660}
   - component: {fileID: 2259777081098750773}
+  - component: {fileID: 4050301280861931393}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -715,7 +716,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3456691444407304161}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.015117439, y: -0.9849769, z: -0.12299161, w: 0.1202706}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -736,6 +737,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3456691444407304161}
   m_CullTransparentMesh: 1
+--- !u!1183024399 &4050301280861931393
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3456691444407304161}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_Roll: 0
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 10
 --- !u!1 &4117087506617221958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,7 +1935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8637877261066636635}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.812331, z: -0, w: 0.5831966}
+  m_LocalRotation: {x: 0, y: -0.8123329, z: 0, w: 0.583194}
   m_LocalPosition: {x: 15.56, y: -0.38, z: 2.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1943,7 +1964,10 @@ MonoBehaviour:
   animator: {fileID: 2015504592071323854}
   actions:
   - {fileID: 11400000, guid: a58c988df4083b84681bba52d2910394, type: 2}
+  - {fileID: 11400000, guid: 4cad893a12f151c45a95e0f5a00315d8, type: 2}
   timeBeforeExecuteAction: 1.2
+  bonusPower: 0
+  bonusPowerCount: 0
 --- !u!1 &8961054531530707901
 GameObject:
   m_ObjectHideFlags: 0
