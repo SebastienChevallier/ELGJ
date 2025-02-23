@@ -59,6 +59,8 @@ public class Entity : MonoBehaviour, IHealth
 
     public virtual void Die()
     {
+        animator.SetTrigger("Death");
+
         GameManager.Instance.UnQueueEntity(this);
     }
 }
