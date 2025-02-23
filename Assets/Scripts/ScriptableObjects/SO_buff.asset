@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_buff
   m_EditorClassIdentifier: 
   actionName: '!buff'
-  percentageDamageIncrease: 0.3
+  percentageDamageIncrease: 0.9
   buffParticles:
   - {fileID: 76699057907357697, guid: 42c77117dab591842b32b6986163ce10, type: 3}
   - {fileID: 3515933346294791816, guid: ba3caf4ac742ab8418b957d08a2d0274, type: 3}

@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,12 +29,13 @@ public class GameManager : MonoBehaviour
     public List<GameObject> allCanvas = new List<GameObject>();
     public UnityEvent onNextRound;
     public GameObject losePanel, winPanel;
+    public bool isEnd;
 
 
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
-
+        isEnd = false;
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -67,6 +69,9 @@ public class GameManager : MonoBehaviour
 
     public void BuildQueue()
     {
+        if (isEnd)
+            return;
+
         TurnNumber++;
         turnOrder.Clear();
         string order = "";
@@ -88,6 +93,9 @@ public class GameManager : MonoBehaviour
 
     public void UnQueueEntity(Entity entity)
     {
+        if (isEnd)
+            return;
+
         if (turnOrder.Contains(entity))
         {
             Entity[] ents = turnOrder.ToArray();
@@ -111,6 +119,9 @@ public class GameManager : MonoBehaviour
 
     public void StartStep()
     {
+        if (isEnd)
+            return;
+
         foreach (GameObject go in allCanvas)
         {
             if (!go.activeSelf) go.SetActive(true);
@@ -154,8 +165,11 @@ public class GameManager : MonoBehaviour
 
     public void EndStep()
     {
+        if (isEnd)
+            return;
+
         //Debug.Log("Begin End Step");
-        foreach(UIActionDisplay display in uIActionDisplays)
+        foreach (UIActionDisplay display in uIActionDisplays)
         {
             Destroy(display.gameObject);
         }
@@ -170,6 +184,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartVote(IActions action)
     {
+        if (isEnd)
+            yield break;
+
         TaskManager.Instance.ClearChat();
 
         float time = 0f;
@@ -231,14 +248,24 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        isEnd = true;
         turnOrder.Clear();
         winPanel.SetActive(true);
+        foreach(Entity en in entities)
+        {
+            UnQueueEntity(en);
+        }
     }
 
     public void Loose()
     {
+        isEnd = true;
         turnOrder.Clear();
         losePanel.SetActive(true);
+        foreach (Entity en in entities)
+        {
+            UnQueueEntity(en);
+        }
     }
 
     public void OnClickRetry()
