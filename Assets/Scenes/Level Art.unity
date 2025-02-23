@@ -3460,6 +3460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wizard
       objectReference: {fileID: 0}
+    - target: {fileID: 8582140908263559309, guid: 2dc052a26d1c822458968e5cacba18f1, type: 3}
+      propertyPath: entityName
+      value: Mage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8840593195684903692, guid: 2dc052a26d1c822458968e5cacba18f1, type: 3}
@@ -3576,6 +3580,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6828732774675630223, guid: 9de07839bdb04a5489ca6ba79e79370a, type: 3}
+      propertyPath: entityName
+      value: Archer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3632,6 +3640,10 @@ PrefabInstance:
     - target: {fileID: 5495705532036403850, guid: d624795396c7e7544b84efab490b4544, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019114903068942094, guid: d624795396c7e7544b84efab490b4544, type: 3}
+      propertyPath: entityName
+      value: Anubis
       objectReference: {fileID: 0}
     - target: {fileID: 6019114903068942094, guid: d624795396c7e7544b84efab490b4544, type: 3}
       propertyPath: healthSlider
@@ -3697,6 +3709,10 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 46a833e5672ef8c4cb6b5e848d4c6c9b, type: 2}
+    - target: {fileID: 5447181807948346424, guid: e25f579f71816a84da8024e0018b9d7b, type: 3}
+      propertyPath: entityName
+      value: Knight
+      objectReference: {fileID: 0}
     - target: {fileID: 5447181807948346424, guid: e25f579f71816a84da8024e0018b9d7b, type: 3}
       propertyPath: actions.Array.size
       value: 2

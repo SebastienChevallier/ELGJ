@@ -5,7 +5,11 @@ public class Entity : MonoBehaviour, IHealth
 {
     public EntityStats stats;
     public Slider healthSlider;
+
     public GameObject turnIndicator;
+
+    public string entityName;
+
 
     public virtual void Start()
     {
