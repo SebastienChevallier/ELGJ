@@ -1595,12 +1595,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3545719979613403577, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.725
       objectReference: {fileID: 0}
     - target: {fileID: 3545719979613403577, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448423805207060495, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6488855244206103578, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+      propertyPath: canvasUI
+      value: 
+      objectReference: {fileID: 1535424534}
     - target: {fileID: 6488855244206103578, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
       propertyPath: 'entities.Array.data[0]'
       value: 
@@ -2322,6 +2330,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4877149961671026, guid: 86e216da0abd45e47b3db079ed802697, type: 3}
   m_PrefabInstance: {fileID: 914504008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1535424534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4448423805207060495, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+  m_PrefabInstance: {fileID: 973491116}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1565896134
 GameObject:
@@ -3477,6 +3490,10 @@ PrefabInstance:
     - target: {fileID: 616277065135842012, guid: d624795396c7e7544b84efab490b4544, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625926770237289820, guid: d624795396c7e7544b84efab490b4544, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1743429670744909108, guid: d624795396c7e7544b84efab490b4544, type: 3}
       propertyPath: m_AnchorMax.x
