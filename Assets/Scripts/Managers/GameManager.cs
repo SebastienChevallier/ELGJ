@@ -54,8 +54,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        CamShakeManager.Instance.DoShake(1f, 1f, 0.1f);
 
-        StartStep();
+        Invoke("StartStep", 4f);
+        //StartStep();
     }
 
     public void BuildQueue()

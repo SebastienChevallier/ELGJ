@@ -53,6 +53,8 @@ public class Entity : MonoBehaviour, IHealth
     public virtual void Hit()
     {
         animator.SetTrigger("Hit");
+
+        CamShakeManager.Instance.DoShake(0.5f, 1f, 0.1f);
     }
 
     public virtual void Die()
