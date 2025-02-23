@@ -57,16 +57,14 @@ public class Mob : Entity
         fireballParticles.gameObject.SetActive(true);
         fireballParticles.transform.position = particleInstatiatePos.position;
 
-        DOTween.Sequence()
+        yield return DOTween.Sequence()
             .Append(fireballParticles.transform.DOMove(target.transform.position + Vector3.up, tweenMoveDuration).SetEase(Ease.Linear))
             .WaitForCompletion();
 
 
-        yield return null;
         target.UpdateHealth(-basicAttackDamage);
         yield return new WaitForSeconds(1);
         GameManager.Instance.EndStep();
-        yield return new WaitForSeconds(1);
         fireballParticles.gameObject.SetActive(false);
 
 
