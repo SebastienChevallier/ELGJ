@@ -59,8 +59,6 @@ public class Entity : MonoBehaviour, IHealth
 
     public virtual void Die()
     {
-        Debug.Log("Grosse merde");
-        animator.SetTrigger("Death");
-        //Destroy(gameObject, 3f);
+        GameManager.Instance.UnQueueEntity(this);
     }
 }

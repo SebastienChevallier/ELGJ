@@ -81,6 +81,29 @@ public class GameManager : MonoBehaviour
         //Debug.Log(order);
     }
 
+    public void UnQueueEntity(Entity entity)
+    {
+        if (turnOrder.Contains(entity))
+        {
+            Entity[] ents = turnOrder.ToArray();
+            turnOrder.Clear();
+
+            if (entities.Contains(entity))
+            {
+                entities.Remove(entity);
+            }
+
+            foreach (Entity ent in ents)
+            {
+                if(ent != entity)
+                {
+                    turnOrder.Enqueue(ent);
+                }
+                
+            }
+        }
+    }
+
     public void StartStep()
     {
         if(turnOrder.Count > 0)
@@ -142,7 +165,7 @@ public class GameManager : MonoBehaviour
         timerSlider.value = time;
         //int i = 0;
 
-        while (time < 20f)
+        while (time < 1f)
         {
             time += Time.deltaTime;
             //Debug.Log(time);
