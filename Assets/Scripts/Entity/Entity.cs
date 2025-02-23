@@ -41,11 +41,11 @@ public class Entity : MonoBehaviour, IHealth
             healthSlider.value = stats.health;
         }
 
-        if (amount < 0)
-            Hit();
-
         if (stats.health <= 0)
             Die();
+
+        if (amount < 0)
+            Hit();
 
         return amount > 0 ? true : false;
     }
