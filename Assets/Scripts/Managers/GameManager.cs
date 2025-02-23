@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject UIActionParent;
     public GameObject UIActionPrefab;
     public TextMeshProUGUI actualPlayableText;
-    public GameObject canvasUI;
+    public List<GameObject> allCanvas = new List<GameObject>();
 
 
     private void Awake()
@@ -107,9 +107,12 @@ public class GameManager : MonoBehaviour
 
     public void StartStep()
     {
-        if (!canvasUI.activeSelf) canvasUI.SetActive(true);
+        foreach (GameObject go in allCanvas)
+        {
+            if (!go.activeSelf) go.SetActive(true);
+        }
 
-        if(turnOrder.Count > 0)
+        if (turnOrder.Count > 0)
         {
             //Debug.Log(turnOrder.Count);
 
