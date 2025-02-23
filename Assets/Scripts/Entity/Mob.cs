@@ -10,6 +10,7 @@ public class Mob : Entity
     public int AttackeAOEDamage;
 
     public Hero heroPriority;
+    public int heroPriorityCount;
 
 
     [Header("FX")]
@@ -26,7 +27,7 @@ public class Mob : Entity
 
     IEnumerator WaitToAttack()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         MobAction action = GetRandomEnumValue<MobAction>();
 
         switch (action)
@@ -46,9 +47,10 @@ public class Mob : Entity
     IEnumerator BasicAttackCoroutine() 
     {
         Hero target;
-        if (heroPriority)
+        if (heroPriority && heroPriorityCount > 0)
         {
             target = heroPriority;
+            heroPriorityCount--;
         } else
         {
             target = GameManager.Instance.heroes[UnityEngine.Random.Range(0, GameManager.Instance.heroes.Count)];
@@ -78,10 +80,19 @@ public class Mob : Entity
     IEnumerator AttackAOECoroutine()
     {
 
-        foreach(Hero hero in GameManager.Instance.heroes)
+        List<Hero> tempList = new List<Hero>();
+
+        foreach (Hero hero in GameManager.Instance.heroes)
+        {
+            tempList.Add(hero);
+        }
+
+        foreach (Hero hero in tempList)
         {
             hero.UpdateHealth(-AttackeAOEDamage);
         }
+
+
         yield return new WaitForSeconds(.2f);
         foreach(ParticleSystem ps in explosionParticles)
         {

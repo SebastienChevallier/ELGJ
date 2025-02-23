@@ -15,6 +15,7 @@ public class SO_taunt : SO_Action
             if (entity != null)
             {
                 mob.heroPriority = entity;
+                mob.heroPriorityCount = 2;
             }
         }
     }

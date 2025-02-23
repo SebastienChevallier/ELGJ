@@ -28,4 +28,10 @@ public class Hero : Entity, IActions
     {
         return actions;
     }
+
+    public override void Die()
+    {
+        base.Die();
+        GameManager.Instance.heroes.Remove(this);
+    }
 }

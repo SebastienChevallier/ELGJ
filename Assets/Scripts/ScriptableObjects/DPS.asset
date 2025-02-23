@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd97db0be84fe841b5a14a139cdad20, type: 3}
   m_Name: DPS
   m_EditorClassIdentifier: 
-  health: 150
-  maxHealth: 150
+  health: 30
+  maxHealth: 30
   power: 30
   speed: 7

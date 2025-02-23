@@ -41,11 +41,15 @@ public class Entity : MonoBehaviour, IHealth
             healthSlider.value = stats.health;
         }
 
+        if (stats.health <= 0)
+        {
+            Die();
+            return false;
+        }
+
         if (amount < 0)
             Hit();
 
-        if (stats.health <= 0)
-            Die();
 
         return amount > 0 ? true : false;
     }
@@ -59,6 +63,8 @@ public class Entity : MonoBehaviour, IHealth
 
     public virtual void Die()
     {
+        animator.SetTrigger("Death");
+        GameManager.Instance.entities.Remove(this);
         GameManager.Instance.UnQueueEntity(this);
     }
 }

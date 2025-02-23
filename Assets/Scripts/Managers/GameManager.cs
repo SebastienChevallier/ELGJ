@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
         timerSlider.value = time;
         //int i = 0;
 
-        while (time < 6f)
+        while (time < 2.5f)
         {
             time += Time.deltaTime;
             //Debug.Log(time);
