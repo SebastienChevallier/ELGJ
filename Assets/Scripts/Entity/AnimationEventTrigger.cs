@@ -4,7 +4,9 @@ using UnityEngine;
 public class AnimationEventTrigger : MonoBehaviour
 {
     public Mob mob;
+    public Hero hero;
 
+    #region Enemy
     public void MobBasicAttack()
     {
         mob.basicAttack();
@@ -19,15 +21,20 @@ public class AnimationEventTrigger : MonoBehaviour
     {
         mob.Die();
     }
+    #endregion
 
-/*    private void Start()
+    public void HeroBasicAttack()
     {
-        StartCoroutine(test());
+        
     }
 
-    IEnumerator test()
+    public void HeroTaunt()
     {
-        yield return new WaitForSeconds(2f);
-        mob.animator.SetTrigger("Death");
-    }*/
+        
+    }
+
+    public void HeroHeal()
+    {
+        
+    }
 }

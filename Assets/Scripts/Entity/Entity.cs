@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour, IHealth
 {
     public EntityStats stats;
     public Slider healthSlider;
-
+    public Animator animator;
     public virtual void Start()
     {
         stats = Instantiate(stats);
@@ -37,12 +37,21 @@ public class Entity : MonoBehaviour, IHealth
         if (stats.health <= 0)
             Die();
 
+        if (amount < 0)
+            Hit();
+
         return amount > 0 ? true : false;
+    }
+
+    public virtual void Hit()
+    {
+        animator.SetTrigger("Hit");
     }
 
     public virtual void Die()
     {
         Debug.Log("Grosse merde");
+        animator.SetTrigger("Death");
         //Destroy(gameObject, 3f);
     }
 }

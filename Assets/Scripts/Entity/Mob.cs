@@ -10,7 +10,6 @@ public class Mob : Entity
     public int AttackeAOEDamage;
 
     public Hero heroPriority;
-    public Animator animator;
 
 
     [Header("FX")]
@@ -22,9 +21,15 @@ public class Mob : Entity
 
     public void Attaque()
     {
+        StartCoroutine(WaitToAttack());
+    }
+
+    IEnumerator WaitToAttack()
+    {
+        yield return new WaitForSeconds(4f);
         MobAction action = GetRandomEnumValue<MobAction>();
-        
-        switch(action)
+
+        switch (action)
         {
             case MobAction.Attack:
                 animator.SetTrigger("Attack");
@@ -98,6 +103,13 @@ public class Mob : Entity
         base.Die();
         dieParticles.gameObject.SetActive(true);
     }
+
+    public override void Hit()
+    {
+        base.Hit();
+
+    }
+
     public T GetRandomEnumValue<T>()
     {
         Array values = Enum.GetValues(typeof(T));

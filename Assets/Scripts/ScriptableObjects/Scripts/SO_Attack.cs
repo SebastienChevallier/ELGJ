@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SO_Attack", menuName = "Scriptable Objects/SO_Action/SO_Attack")]
@@ -7,13 +8,22 @@ public class SO_attack : SO_Action
     {
         if (arg.Length > 0)
         {
-            Mob MobHealth = (Mob)arg[0];
-            if (MobHealth != null)
+            Hero entity = (Hero)arg[2];
+            entity.animator.SetTrigger("Attack");
+
+            entity.StartCoroutine(WaitBeforeHit(arg));
+        }
+    }
+
+    IEnumerator WaitBeforeHit(object[] arg)
+    {
+        yield return new WaitForSeconds(1.2f);
+        Mob MobHealth = (Mob)arg[0];
+        if (MobHealth != null)
+        {
+            if (MobHealth.TryGetComponent<IHealth>(out IHealth health))
             {
-                if (MobHealth.TryGetComponent<IHealth>(out IHealth health))
-                {
-                    health.UpdateHealth(-(int)arg[1]);
-                }
+                health.UpdateHealth(-(int)arg[1]);
             }
         }
     }
