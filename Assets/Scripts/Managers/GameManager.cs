@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject UIActionParent;
     public GameObject UIActionPrefab;
     public TextMeshProUGUI actualPlayableText;
+    public GameObject canvasUI;
 
 
     private void Awake()
