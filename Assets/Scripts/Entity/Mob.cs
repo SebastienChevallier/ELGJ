@@ -19,6 +19,7 @@ public class Mob : Entity
     public ParticleSystem dieParticles;
     public Transform particleInstatiatePos;
     public float tweenMoveDuration;
+    public ParticleSystem firework;
 
     public void Attaque()
     {
@@ -111,6 +112,14 @@ public class Mob : Entity
     {
         base.Die();
         dieParticles.gameObject.SetActive(true);
+        StartCoroutine(WaitForFirework());
+    }
+
+    IEnumerator WaitForFirework()
+    {
+        yield return new WaitForSeconds(5);
+        firework.gameObject.SetActive(true);
+
     }
 
     public override void Hit()
