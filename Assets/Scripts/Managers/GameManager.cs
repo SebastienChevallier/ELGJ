@@ -226,4 +226,14 @@ public class GameManager : MonoBehaviour
             uIActionDisplays.Add(display);
         }
     }
+
+    public void Win()
+    {
+
+    }
+
+    public void Loose()
+    {
+
+    }
 }
