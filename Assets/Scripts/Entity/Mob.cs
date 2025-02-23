@@ -119,7 +119,7 @@ public class Mob : Entity
     {
         yield return new WaitForSeconds(5);
         firework.gameObject.SetActive(true);
-
+        GameManager.Instance.Win();
     }
 
     public override void Hit()

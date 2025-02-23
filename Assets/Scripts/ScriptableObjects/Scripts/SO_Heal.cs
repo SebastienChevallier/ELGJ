@@ -17,7 +17,15 @@ public class SO_heal : SO_Action
         {
             if (hero.TryGetComponent<IHealth>(out IHealth health))
             {
-                health.UpdateHealth((int)arg[1]);
+                if (entity.bonusPowerCount > 0)
+                {
+                    health.UpdateHealth((int)arg[1] + entity.bonusPower);
+                    entity.bonusPowerCount--;
+                }
+                else
+                {
+                    health.UpdateHealth((int)arg[1]);
+                }
             }
         }
     }
