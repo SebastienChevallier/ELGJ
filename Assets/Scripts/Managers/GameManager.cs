@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Slider timerSlider;
     public GameObject UIActionParent;
     public GameObject UIActionPrefab;
+    public TextMeshProUGUI actualPlayableText;
 
 
     private void Awake()
@@ -83,9 +84,12 @@ public class GameManager : MonoBehaviour
         if(turnOrder.Count > 0)
         {
             //Debug.Log(turnOrder.Count);
+
             actualPlayable = turnOrder.Dequeue();
 
-            if(actualPlayable.TryGetComponent<IActions>(out IActions action))
+            actualPlayableText.text = actualPlayable.entityName;
+
+            if (actualPlayable.TryGetComponent<IActions>(out IActions action))
             {
                 //Afficher les options sur l'ecran
                 DisplayActions(action);

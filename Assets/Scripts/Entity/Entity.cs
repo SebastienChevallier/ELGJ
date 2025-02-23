@@ -5,6 +5,7 @@ public class Entity : MonoBehaviour, IHealth
 {
     public EntityStats stats;
     public Slider healthSlider;
+    public string entityName;
 
     public virtual void Start()
     {
