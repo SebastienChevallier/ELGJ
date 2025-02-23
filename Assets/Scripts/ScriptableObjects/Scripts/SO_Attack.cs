@@ -11,11 +11,11 @@ public class SO_attack : SO_Action
             Hero entity = (Hero)arg[2];
             entity.animator.SetTrigger("Attack");
 
-            entity.StartCoroutine(WaitBeforeHit(arg));
+            entity.StartCoroutine(WaitBeforeHit(arg, entity));
         }
     }
 
-    IEnumerator WaitBeforeHit(object[] arg)
+    IEnumerator WaitBeforeHit(object[] arg, Hero selfHero)
     {
         yield return new WaitForSeconds((float)arg[3]);
         Mob MobHealth = (Mob)arg[0];
@@ -23,7 +23,14 @@ public class SO_attack : SO_Action
         {
             if (MobHealth.TryGetComponent<IHealth>(out IHealth health))
             {
-                health.UpdateHealth(-(int)arg[1]);
+                if (selfHero.bonusPowerCount > 0)
+                {
+                    health.UpdateHealth(-(int)arg[1] + -selfHero.bonusPower);
+                    selfHero.bonusPowerCount--;
+                } else
+                {
+                    health.UpdateHealth(-(int)arg[1]);
+                }
             }
         }
     }

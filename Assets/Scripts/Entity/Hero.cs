@@ -6,6 +6,9 @@ public class Hero : Entity, IActions
     public List<SO_Action> actions;
     public float timeBeforeExecuteAction;
 
+    public int bonusPower;
+    public int bonusPowerCount;
+
     public void Awake()
     {
         for(int i = 0; i < actions.Count; i++)
