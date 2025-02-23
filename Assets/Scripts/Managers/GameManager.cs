@@ -93,9 +93,6 @@ public class GameManager : MonoBehaviour
             actualPlayable = turnOrder.Dequeue();
             actualPlayable.turnIndicator.SetActive(true);
 
-
-            actualPlayable = turnOrder.Dequeue();
-
             actualPlayableText.text = actualPlayable.entityName;
 
 
