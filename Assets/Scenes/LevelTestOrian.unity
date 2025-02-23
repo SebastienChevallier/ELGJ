@@ -1275,6 +1275,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4035636657140036, guid: 7bf03ea436de85340a610548fc71b0ee, type: 3}
   m_PrefabInstance: {fileID: 779810887}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &817117863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4448423805207060495, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+  m_PrefabInstance: {fileID: 973491116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895028705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,12 +1600,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3545719979613403577, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.725
       objectReference: {fileID: 0}
     - target: {fileID: 3545719979613403577, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448423805207060495, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6488855244206103578, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+      propertyPath: canvasUI
+      value: 
+      objectReference: {fileID: 817117863}
     - target: {fileID: 6488855244206103578, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
       propertyPath: 'entities.Array.data[0]'
       value: 
@@ -1617,6 +1630,10 @@ PrefabInstance:
       propertyPath: 'entities.Array.data[3]'
       value: 
       objectReference: {fileID: 2122140608}
+    - target: {fileID: 7258294770186613607, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7287743310142304975, guid: 6948d38d1dd4a914eb04c1730d644880, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

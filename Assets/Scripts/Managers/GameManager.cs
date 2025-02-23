@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
             {
                 //Afficher les options sur l'ecran
                 DisplayActions(action);
-
+                
                 StartCoroutine(StartVote(action));
             }
 
@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
         timerSlider.value = time;
         //int i = 0;
 
-        while (time < 1f)
+        while (time < 6f)
         {
             time += Time.deltaTime;
             //Debug.Log(time);
