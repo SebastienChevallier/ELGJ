@@ -55,8 +55,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        CamShakeManager.Instance.DoShake(1f, 1f, 0.1f);
 
-        StartStep();
+        Invoke("StartStep", 4f);
+        //StartStep();
     }
 
     public void BuildQueue()
@@ -78,6 +80,29 @@ public class GameManager : MonoBehaviour
         }
 
         //Debug.Log(order);
+    }
+
+    public void UnQueueEntity(Entity entity)
+    {
+        if (turnOrder.Contains(entity))
+        {
+            Entity[] ents = turnOrder.ToArray();
+            turnOrder.Clear();
+
+            if (entities.Contains(entity))
+            {
+                entities.Remove(entity);
+            }
+
+            foreach (Entity ent in ents)
+            {
+                if(ent != entity)
+                {
+                    turnOrder.Enqueue(ent);
+                }
+                
+            }
+        }
     }
 
     public void StartStep()
@@ -141,7 +166,7 @@ public class GameManager : MonoBehaviour
         timerSlider.value = time;
         //int i = 0;
 
-        while (time < 20f)
+        while (time < 1f)
         {
             time += Time.deltaTime;
             //Debug.Log(time);
