@@ -3989,6 +3989,10 @@ PrefabInstance:
       propertyPath: firework
       value: 
       objectReference: {fileID: 930503390}
+    - target: {fileID: 6019114903068942094, guid: d624795396c7e7544b84efab490b4544, type: 3}
+      propertyPath: basicAttackDamage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8844120742617177128, guid: d624795396c7e7544b84efab490b4544, type: 3}
       propertyPath: startDelay.scalar
       value: 4

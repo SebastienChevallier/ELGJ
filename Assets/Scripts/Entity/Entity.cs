@@ -32,7 +32,7 @@ public class Entity : MonoBehaviour, IHealth
     public virtual bool UpdateHealth(int amount)
     {
         //stats.health = Mathf.Clamp(stats.health + amount, 0, stats.maxHealth);
-        stats.health = stats.health + amount;
+        stats.health = Mathf.Clamp(stats.health + amount,0,stats.maxHealth);
 
         Debug.Log($"Inflige {amount} pour un une vie max de {stats.health}");
 
