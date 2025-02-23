@@ -107,6 +107,8 @@ public class GameManager : MonoBehaviour
 
     public void StartStep()
     {
+        if (!canvasUI.activeSelf) canvasUI.SetActive(true);
+
         if(turnOrder.Count > 0)
         {
             //Debug.Log(turnOrder.Count);
