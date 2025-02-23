@@ -5,6 +5,7 @@ public class Entity : MonoBehaviour, IHealth
 {
     public EntityStats stats;
     public Slider healthSlider;
+    public GameObject turnIndicator;
 
     public virtual void Start()
     {
@@ -21,6 +22,8 @@ public class Entity : MonoBehaviour, IHealth
             healthSlider.value = stats.health;
         }
     }   
+
+
 
     public virtual bool UpdateHealth(int amount)
     {

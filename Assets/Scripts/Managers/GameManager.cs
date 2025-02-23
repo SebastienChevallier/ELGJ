@@ -83,9 +83,15 @@ public class GameManager : MonoBehaviour
         if(turnOrder.Count > 0)
         {
             //Debug.Log(turnOrder.Count);
-            actualPlayable = turnOrder.Dequeue();
+            if (actualPlayable)
+            {
+                actualPlayable.turnIndicator.SetActive(false);
+            }
 
-            if(actualPlayable.TryGetComponent<IActions>(out IActions action))
+            actualPlayable = turnOrder.Dequeue();
+            actualPlayable.turnIndicator.SetActive(true);
+
+            if (actualPlayable.TryGetComponent<IActions>(out IActions action))
             {
                 //Afficher les options sur l'ecran
                 DisplayActions(action);
