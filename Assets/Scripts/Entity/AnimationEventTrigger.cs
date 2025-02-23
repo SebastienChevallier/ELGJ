@@ -15,6 +15,11 @@ public class AnimationEventTrigger : MonoBehaviour
         mob.AttackAOE();
     }
 
+    public void MobDie()
+    {
+        mob.Die();
+    }
+
 /*    private void Start()
     {
         StartCoroutine(test());
@@ -23,6 +28,6 @@ public class AnimationEventTrigger : MonoBehaviour
     IEnumerator test()
     {
         yield return new WaitForSeconds(2f);
-        mob.animator.SetTrigger("Attack");
+        mob.animator.SetTrigger("Death");
     }*/
 }
